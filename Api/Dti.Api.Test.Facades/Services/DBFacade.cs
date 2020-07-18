@@ -35,6 +35,10 @@ namespace Dti.Api.Test.Facades.Services
             {
                 throw new ArgumentException("Product ID already registered. Please provide a new one.", nameof(product.Id));
             }
+            if (!product.IsComplete())
+            {
+                throw new ArgumentException("Product name or ID invalid. IDs must be greater than zero.");
+            }
 
             var id = product.Id;
             var name = product.Name;
@@ -64,7 +68,7 @@ namespace Dti.Api.Test.Facades.Services
             }
 
             string query;
-            if (product.Name != null && product.Stock != default)
+            if (product.Name != null && product.Stock != null)
             {
                 query = _fullUpdateFromIdQuery;
             }
@@ -104,8 +108,6 @@ namespace Dti.Api.Test.Facades.Services
             return true;
         }
 
-        private SqliteConnection OpenConnection() => new SqliteConnection(_apiSettings.ConnectionString);
-
         private bool ProductExists(Product product, SqliteConnection connection)
         {
             var id = product.Id;
@@ -129,5 +131,7 @@ namespace Dti.Api.Test.Facades.Services
 
             return addResult != default;
         }
+
+        private SqliteConnection OpenConnection() => new SqliteConnection(_apiSettings.ConnectionString);
     }
 }

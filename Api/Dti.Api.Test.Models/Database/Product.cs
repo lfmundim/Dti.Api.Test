@@ -18,7 +18,7 @@
         /// <summary>
         /// How many products are currently in stock
         /// </summary>
-        public int Stock { get; set; }
+        public int? Stock { get; set; }
 
         /// <summary>
         /// Checks if ID and Name aren't default values to see
@@ -26,5 +26,13 @@
         /// </summary>
         /// <returns><c>true</c> if Name and ID are not default. <c>false</c> otherwise</returns>
         public bool IsComplete() => Name != default && Id != default;
+
+        public override bool Equals(object obj)
+        {
+            return obj is Product comparer
+                   && comparer.Id.Equals(Id)
+                   && comparer.Name.Equals(Name)
+                   && comparer.Stock.Equals(Stock);
+        }
     }
 }

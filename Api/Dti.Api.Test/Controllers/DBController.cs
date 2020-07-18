@@ -31,7 +31,7 @@ namespace Dti.Api.Test.Controllers
         /// </summary>
         /// <param name="product">Must provide the entire product object</param>
         /// <response code="201">Item successfully added</response>
-        /// <response code="400">Product ID already in use or request incomplete.</response>
+        /// <response code="400">Product ID already in use or request invalid.</response>
         /// <response code="500">Failed to add item</response>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -39,12 +39,6 @@ namespace Dti.Api.Test.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult AddNewItem([FromBody] Product product)
         {
-            var isRequestValid = product.IsComplete();
-            if (!isRequestValid)
-            {
-                throw new ArgumentException("Request object incomplete. Please provide Product ID and Name.");
-            }
-
             var isSuccess = _dBFacade.AddNewItem(product);
             var statusCode = isSuccess ? StatusCodes.Status201Created : StatusCodes.Status500InternalServerError;
 
