@@ -71,20 +71,20 @@ namespace Dti.Api.Test
             // Swagger
             app.UseSwagger()
                .UseSwaggerUI(c =>
-                {
-                    c.RoutePrefix = string.Empty;
-                    c.SwaggerEndpoint(SWAGGERFILE_PATH, Constants.PROJECT_NAME + API_VERSION);
-                });
+               {
+                   c.RoutePrefix = string.Empty;
+                   c.SwaggerEndpoint(SWAGGERFILE_PATH, Constants.PROJECT_NAME + API_VERSION);
+               });
 
             app.UseHttpsRedirection()
                .UseAuthentication()
                .UseRouting()
                .UseAuthorization()
                .UseEndpoints(endpoints =>
-                {
-                    endpoints.MapControllers();
-                    MapHealthCheck(endpoints);
-                })
+               {
+                   endpoints.MapControllers();
+                   MapHealthCheck(endpoints);
+               })
                .UseJsonResponseHealthChecks();
         }
 
