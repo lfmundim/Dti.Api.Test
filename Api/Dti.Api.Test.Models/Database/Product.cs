@@ -30,7 +30,7 @@
         /// if the instance is complete
         /// </summary>
         /// <returns><c>true</c> if Name and ID are not default. <c>false</c> otherwise</returns>
-        public bool IsComplete() => Name != default && Id != default;
+        public bool IsComplete() => !string.IsNullOrWhiteSpace(Name) && Id != default;
 
         public override bool Equals(object obj)
         {

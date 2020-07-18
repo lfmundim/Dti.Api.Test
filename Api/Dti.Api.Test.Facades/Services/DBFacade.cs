@@ -62,7 +62,7 @@ namespace Dti.Api.Test.Facades.Services
             }
 
             var propertyList = new List<string>();
-            if (product.Name != null)
+            if (!string.IsNullOrWhiteSpace(product.Name))
             {
                 propertyList.Add("Name = @name");
             }
