@@ -21,6 +21,11 @@
         public int? Stock { get; set; }
 
         /// <summary>
+        /// Price per unit of product
+        /// </summary>
+        public double? Price { get; set; }
+
+        /// <summary>
         /// Checks if ID and Name aren't default values to see
         /// if the instance is complete
         /// </summary>
@@ -32,7 +37,8 @@
             return obj is Product comparer
                    && comparer.Id.Equals(Id)
                    && comparer.Name.Equals(Name)
-                   && comparer.Stock.Equals(Stock);
+                   && comparer.Stock.Equals(Stock)
+                   && comparer.Price.Equals(Price);
         }
     }
 }

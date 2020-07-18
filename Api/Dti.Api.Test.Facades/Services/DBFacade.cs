@@ -14,14 +14,12 @@ namespace Dti.Api.Test.Facades.Services
     public class DBFacade : IDBFacade
     {
         private readonly ApiSettings _apiSettings;
-        private readonly string _tableCreateQuery = "CREATE TABLE Products (Id, Name, Stock)";
-        private readonly string _addItemQuery = "INSERT INTO Products (Id, Name, Stock)" +
-                                                "VALUES (@id, @name, @stock)";
+        private readonly string _tableCreateQuery = "CREATE TABLE Products (Id, Name, Stock, Price)";
+        private readonly string _addItemQuery = "INSERT INTO Products (Id, Name, Stock, Price)" +
+                                                "VALUES (@id, @name, @stock, @price)";
         private readonly string _selectFromIdQuery = "SELECT * FROM Products WHERE Id = @id";
         private readonly string _deleteFromIdQuery = "DELETE FROM Products WHERE Id = @id";
-        private readonly string _fullUpdateFromIdQuery = "UPDATE Products SET Name = @name, Stock = @stock WHERE Id = @id";
-        private readonly string _stockUpdateFromIdQuery = "UPDATE Products SET Stock = @stock WHERE Id = @id";
-        private readonly string _nameUpdateFromIdQuery = "UPDATE Products SET Name = @name WHERE Id = @id";
+        private readonly string _baseUpdateFromIdQuery = "UPDATE Products SET {0} WHERE Id = @id";
         private readonly string _selectAllQuery = "SELECT * FROM Products";
 
         public DBFacade(ApiSettings apiSettings)
@@ -42,13 +40,7 @@ namespace Dti.Api.Test.Facades.Services
                 throw new ArgumentException("Product name or ID invalid. IDs must be greater than zero.");
             }
 
-            var id = product.Id;
-            var name = product.Name;
-            var stock = product.Stock;
-
-            var addResult = connection.Execute(_addItemQuery, new { id, name, stock });
-
-            return addResult != default;
+            return AddOrUpdateItem(product, connection, _addItemQuery);
         }
 
         public bool DeleteItem(long id)
@@ -69,21 +61,22 @@ namespace Dti.Api.Test.Facades.Services
                 throw new ArgumentException($"Product with ID {product.Id} does not exist.", nameof(product.Id));
             }
 
-            string query;
-            if (product.Name != null && product.Stock != null)
+            var propertyList = new List<string>();
+            if (product.Name != null)
             {
-                query = _fullUpdateFromIdQuery;
+                propertyList.Add("Name = @name");
             }
-            else if (product.Name is null)
+            if (product.Price != null)
             {
-                query = _stockUpdateFromIdQuery;
+                propertyList.Add("Price = @price");
             }
-            else
+            if(product.Stock != null)
             {
-                query = _nameUpdateFromIdQuery;
+                propertyList.Add("Stock = @stock");
             }
 
-            return UpdateItem(product, connection, query);
+            var properties = propertyList.Aggregate((current, next) => $"{current}, {next}");
+            return AddOrUpdateItem(product, connection, string.Format(_baseUpdateFromIdQuery, properties));
         }
 
         public Product GetItem(long id)
@@ -123,15 +116,16 @@ namespace Dti.Api.Test.Facades.Services
                                                         .FirstOrDefault();
         }
 
-        private bool UpdateItem(Product product, SqliteConnection connection, string query)
+        private bool AddOrUpdateItem(Product product, SqliteConnection connection, string query)
         {
             var id = product.Id;
             var name = product.Name;
             var stock = product.Stock;
+            var price = product.Price;
 
-            var addResult = connection.Execute(query, new { id, name, stock });
+            var result = connection.Execute(query, new { id, name, stock, price });
 
-            return addResult != default;
+            return result != default;
         }
 
         private SqliteConnection OpenConnection() => new SqliteConnection(_apiSettings.ConnectionString);

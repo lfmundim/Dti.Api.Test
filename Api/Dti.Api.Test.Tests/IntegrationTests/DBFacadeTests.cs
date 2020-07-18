@@ -101,10 +101,14 @@ namespace Dti.Api.Test.Tests.IntegrationTests
         }
 
         [Theory]
-        [InlineData("newName", 42)]
-        [InlineData(null, 42)]
-        [InlineData("newName", null)]
-        public void UpdateAndGetItem_Test(string newName, int? newStock)
+        [InlineData("newName", 42, 42.5)]
+        [InlineData(null, 42, 42.5)]
+        [InlineData("newName", null, 42.5)]
+        [InlineData("newName", 42, null)]
+        [InlineData("newName", null, null)]
+        [InlineData(null, 42, null)]
+        [InlineData(null, null, 42.5)]
+        public void UpdateAndGetItem_Test(string newName, int? newStock, double? newPrice)
         {
             // Arrange
             var product = CreateProduct();
@@ -122,6 +126,7 @@ namespace Dti.Api.Test.Tests.IntegrationTests
             updatedDbProduct.Id.ShouldBe(ID);
             updatedDbProduct.Stock.ShouldBe(newStock is null ? product.Stock : newStock);
             updatedDbProduct.Name.ShouldBe(newName is null ? product.Name : newName);
+            updatedDbProduct.Price.ShouldBe(newPrice is null ? product.Price : newPrice);
             deleteResponse.ShouldBeTrue();
         }
 
@@ -159,13 +164,14 @@ namespace Dti.Api.Test.Tests.IntegrationTests
             retrievedItems.Any().ShouldBeTrue();
         }
 
-        private static Product CreateProduct(string name = "integrationTest", int? stock = 42, long id = ID)
+        private static Product CreateProduct(string name = "integrationTest", int? stock = 42, double? price = 42.5, long id = ID)
         {
             return new Product
             {
                 Id = id,
                 Name = name,
-                Stock = stock
+                Stock = stock,
+                Price = price
             };
         }
     }
