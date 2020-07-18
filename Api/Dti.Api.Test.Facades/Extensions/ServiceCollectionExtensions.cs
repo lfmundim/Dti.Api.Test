@@ -1,4 +1,6 @@
-﻿using Dti.Api.Test.Models;
+﻿using System;
+using Dti.Api.Test.Facades.Services;
+using Dti.Api.Test.Models;
 using Dti.Api.Test.Models.UI;
 
 using Microsoft.Extensions.Configuration;
@@ -21,10 +23,14 @@ namespace Dti.Api.Test.Facades.Extensions
         /// <param name="configuration"></param>
         public static void AddSingletons(this IServiceCollection services, IConfiguration configuration)
         {
-            //var settings = configuration.GetSection(SETTINGS_SECTION).Get<ApiSettings>();
+            var settings = configuration.GetSection(SETTINGS_SECTION).Get<ApiSettings>();
+            #if DEBUG
+            settings.ConnectionString = $"Data Source={Environment.CurrentDirectory}\\db.sqlite";
+            #endif
 
             //// Dependency injection
-            //services.AddSingleton(settings);
+            services.AddSingleton(settings);
+            services.AddSingleton<IDBFacade, DBFacade>();
 
             // SERILOG settings
             services.AddSingleton<ILogger>(new LoggerConfiguration()

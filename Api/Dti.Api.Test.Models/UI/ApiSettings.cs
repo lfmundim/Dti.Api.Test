@@ -5,6 +5,9 @@
     /// </summary>
     public class ApiSettings
     {
-        
+        /// <summary>
+        /// DB Connection String
+        /// </summary>
+        public string ConnectionString { get; set; }
     }
 }
