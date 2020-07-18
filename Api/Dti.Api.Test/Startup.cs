@@ -42,6 +42,10 @@ namespace Dti.Api.Test
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options => options.AddPolicy("ApiCorsPolicy", builder =>
+            {
+                builder.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
+            }));
             services.AddMvc();
 
             services.AddSingletons(Configuration);
@@ -63,6 +67,7 @@ namespace Dti.Api.Test
             }
 
             app.UseMiddleware<ErrorHandlingMiddleware>();
+            app.UseCors("ApiCorsPolicy");
 
             // Swagger
             app.UseSwagger()

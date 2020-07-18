@@ -254,3 +254,289 @@ System.ArgumentException: Product ID already registered. Please provide a new on
    at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
    at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
    at Dti.Api.Test.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Middleware\ErrorHandlingMiddleware.cs:line 43
+2020-07-18 16:17:29.349 -03:00 [ERR] Error: SQLite Error 1: 'no such table: Products'.
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Products'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in /_/Dapper/SqlMapper.cs:line 1051
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in /_/Dapper/SqlMapper.cs:line 1079
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 721
+   at Dti.Api.Test.Facades.Services.DBFacade.GetAllItems() in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test.Facades\Services\DBFacade.cs:line 93
+   at Dti.Api.Test.Controllers.DBController.GetAllItems() in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Controllers\DBController.cs:line 111
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Dti.Api.Test.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Middleware\ErrorHandlingMiddleware.cs:line 38
+2020-07-18 16:17:29.444 -03:00 [ERR] [traceId:0HM1B9QHE8CO2:00000003] Error. Headers: [{"Key":"Connection","Value":["keep-alive"],"$type":"KeyValuePair`2"},{"Key":"Accept","Value":["text/plain"],"$type":"KeyValuePair`2"},{"Key":"Accept-Encoding","Value":["gzip, deflate, br"],"$type":"KeyValuePair`2"},{"Key":"Accept-Language","Value":["en-US,en;q=0.9"],"$type":"KeyValuePair`2"},{"Key":"Host","Value":["localhost:57406"],"$type":"KeyValuePair`2"},{"Key":"Referer","Value":["http://localhost:57406/index.html"],"$type":"KeyValuePair`2"},{"Key":"User-Agent","Value":["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 OPR/68.0.3618.173"],"$type":"KeyValuePair`2"},{"Key":"Sec-Fetch-Site","Value":["same-origin"],"$type":"KeyValuePair`2"},{"Key":"Sec-Fetch-Mode","Value":["cors"],"$type":"KeyValuePair`2"},{"Key":"Sec-Fetch-Dest","Value":["empty"],"$type":"KeyValuePair`2"}]. Query: []. Path: {"Value":"/api/DB","HasValue":true,"$type":"PathString"}. Body: 
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Products'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in /_/Dapper/SqlMapper.cs:line 1051
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in /_/Dapper/SqlMapper.cs:line 1079
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 721
+   at Dti.Api.Test.Facades.Services.DBFacade.GetAllItems() in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test.Facades\Services\DBFacade.cs:line 93
+   at Dti.Api.Test.Controllers.DBController.GetAllItems() in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Controllers\DBController.cs:line 111
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Dti.Api.Test.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Middleware\ErrorHandlingMiddleware.cs:line 38
+2020-07-18 17:29:07.934 -03:00 [ERR] Error: Product ID already registered. Please provide a new one. (Parameter 'Id')
+System.ArgumentException: Product ID already registered. Please provide a new one. (Parameter 'Id')
+   at Dti.Api.Test.Facades.Services.DBFacade.AddNewItem(Product product) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test.Facades\Services\DBFacade.cs:line 38
+   at Dti.Api.Test.Controllers.DBController.AddNewItem(Product product) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Controllers\DBController.cs:line 41
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Dti.Api.Test.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Middleware\ErrorHandlingMiddleware.cs:line 38
+2020-07-18 17:29:07.990 -03:00 [ERR] [traceId:0HM1BA6BULBRL:00000004] Error. Headers: [{"Key":"Connection","Value":["keep-alive"],"$type":"KeyValuePair`2"},{"Key":"Content-Type","Value":["application/json"],"$type":"KeyValuePair`2"},{"Key":"Accept","Value":["*/*"],"$type":"KeyValuePair`2"},{"Key":"Accept-Encoding","Value":["gzip, deflate, br"],"$type":"KeyValuePair`2"},{"Key":"Accept-Language","Value":["en-US,en;q=0.9"],"$type":"KeyValuePair`2"},{"Key":"Host","Value":["localhost:57406"],"$type":"KeyValuePair`2"},{"Key":"Referer","Value":["http://localhost:57406/index.html"],"$type":"KeyValuePair`2"},{"Key":"User-Agent","Value":["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 OPR/68.0.3618.173"],"$type":"KeyValuePair`2"},{"Key":"Origin","Value":["http://localhost:57406"],"$type":"KeyValuePair`2"},{"Key":"Content-Length","Value":["78"],"$type":"KeyValuePair`2"},{"Key":"Sec-Fetch-Site","Value":["same-origin"],"$type":"KeyValuePair`2"},{"Key":"Sec-Fetch-Mode","Value":["cors"],"$type":"KeyValuePair`2"},{"Key":"Sec-Fetch-Dest","Value":["empty"],"$type":"KeyValuePair`2"}]. Query: []. Path: {"Value":"/api/DB","HasValue":true,"$type":"PathString"}. Body: 
+System.ArgumentException: Product ID already registered. Please provide a new one. (Parameter 'Id')
+   at Dti.Api.Test.Facades.Services.DBFacade.AddNewItem(Product product) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test.Facades\Services\DBFacade.cs:line 38
+   at Dti.Api.Test.Controllers.DBController.AddNewItem(Product product) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Controllers\DBController.cs:line 41
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Dti.Api.Test.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Middleware\ErrorHandlingMiddleware.cs:line 38
+2020-07-18 17:29:13.336 -03:00 [ERR] Error: Product ID already registered. Please provide a new one. (Parameter 'Id')
+System.ArgumentException: Product ID already registered. Please provide a new one. (Parameter 'Id')
+   at Dti.Api.Test.Facades.Services.DBFacade.AddNewItem(Product product) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test.Facades\Services\DBFacade.cs:line 38
+   at Dti.Api.Test.Controllers.DBController.AddNewItem(Product product) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Controllers\DBController.cs:line 41
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Dti.Api.Test.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Middleware\ErrorHandlingMiddleware.cs:line 38
+2020-07-18 17:29:13.338 -03:00 [ERR] [traceId:0HM1BA6BULBRL:00000005] Error. Headers: [{"Key":"Connection","Value":["keep-alive"],"$type":"KeyValuePair`2"},{"Key":"Content-Type","Value":["application/json"],"$type":"KeyValuePair`2"},{"Key":"Accept","Value":["*/*"],"$type":"KeyValuePair`2"},{"Key":"Accept-Encoding","Value":["gzip, deflate, br"],"$type":"KeyValuePair`2"},{"Key":"Accept-Language","Value":["en-US,en;q=0.9"],"$type":"KeyValuePair`2"},{"Key":"Host","Value":["localhost:57406"],"$type":"KeyValuePair`2"},{"Key":"Referer","Value":["http://localhost:57406/index.html"],"$type":"KeyValuePair`2"},{"Key":"User-Agent","Value":["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 OPR/68.0.3618.173"],"$type":"KeyValuePair`2"},{"Key":"Origin","Value":["http://localhost:57406"],"$type":"KeyValuePair`2"},{"Key":"Content-Length","Value":["78"],"$type":"KeyValuePair`2"},{"Key":"Sec-Fetch-Site","Value":["same-origin"],"$type":"KeyValuePair`2"},{"Key":"Sec-Fetch-Mode","Value":["cors"],"$type":"KeyValuePair`2"},{"Key":"Sec-Fetch-Dest","Value":["empty"],"$type":"KeyValuePair`2"}]. Query: []. Path: {"Value":"/api/DB","HasValue":true,"$type":"PathString"}. Body: 
+System.ArgumentException: Product ID already registered. Please provide a new one. (Parameter 'Id')
+   at Dti.Api.Test.Facades.Services.DBFacade.AddNewItem(Product product) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test.Facades\Services\DBFacade.cs:line 38
+   at Dti.Api.Test.Controllers.DBController.AddNewItem(Product product) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Controllers\DBController.cs:line 41
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Dti.Api.Test.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Middleware\ErrorHandlingMiddleware.cs:line 38
+2020-07-18 17:30:03.079 -03:00 [ERR] Error: Product ID already registered. Please provide a new one. (Parameter 'Id')
+System.ArgumentException: Product ID already registered. Please provide a new one. (Parameter 'Id')
+   at Dti.Api.Test.Facades.Services.DBFacade.AddNewItem(Product product) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test.Facades\Services\DBFacade.cs:line 38
+   at Dti.Api.Test.Controllers.DBController.AddNewItem(Product product) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Controllers\DBController.cs:line 41
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Dti.Api.Test.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Middleware\ErrorHandlingMiddleware.cs:line 38
+2020-07-18 17:30:03.081 -03:00 [ERR] [traceId:0HM1BA6BULBRL:00000006] Error. Headers: [{"Key":"Connection","Value":["keep-alive"],"$type":"KeyValuePair`2"},{"Key":"Content-Type","Value":["application/json"],"$type":"KeyValuePair`2"},{"Key":"Accept","Value":["*/*"],"$type":"KeyValuePair`2"},{"Key":"Accept-Encoding","Value":["gzip, deflate, br"],"$type":"KeyValuePair`2"},{"Key":"Accept-Language","Value":["en-US,en;q=0.9"],"$type":"KeyValuePair`2"},{"Key":"Host","Value":["localhost:57406"],"$type":"KeyValuePair`2"},{"Key":"Referer","Value":["http://localhost:57406/index.html"],"$type":"KeyValuePair`2"},{"Key":"User-Agent","Value":["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 OPR/68.0.3618.173"],"$type":"KeyValuePair`2"},{"Key":"Origin","Value":["http://localhost:57406"],"$type":"KeyValuePair`2"},{"Key":"Content-Length","Value":["78"],"$type":"KeyValuePair`2"},{"Key":"Sec-Fetch-Site","Value":["same-origin"],"$type":"KeyValuePair`2"},{"Key":"Sec-Fetch-Mode","Value":["cors"],"$type":"KeyValuePair`2"},{"Key":"Sec-Fetch-Dest","Value":["empty"],"$type":"KeyValuePair`2"}]. Query: []. Path: {"Value":"/api/DB","HasValue":true,"$type":"PathString"}. Body: 
+System.ArgumentException: Product ID already registered. Please provide a new one. (Parameter 'Id')
+   at Dti.Api.Test.Facades.Services.DBFacade.AddNewItem(Product product) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test.Facades\Services\DBFacade.cs:line 38
+   at Dti.Api.Test.Controllers.DBController.AddNewItem(Product product) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Controllers\DBController.cs:line 41
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Dti.Api.Test.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Middleware\ErrorHandlingMiddleware.cs:line 38
+2020-07-18 17:30:32.355 -03:00 [ERR] Error: Product name or ID invalid. IDs must be greater than zero.
+System.ArgumentException: Product name or ID invalid. IDs must be greater than zero.
+   at Dti.Api.Test.Facades.Services.DBFacade.AddNewItem(Product product) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test.Facades\Services\DBFacade.cs:line 43
+   at Dti.Api.Test.Controllers.DBController.AddNewItem(Product product) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Controllers\DBController.cs:line 41
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Dti.Api.Test.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Middleware\ErrorHandlingMiddleware.cs:line 38
+2020-07-18 17:30:32.357 -03:00 [ERR] [traceId:0HM1BA6BULBRL:00000008] Error. Headers: [{"Key":"Connection","Value":["keep-alive"],"$type":"KeyValuePair`2"},{"Key":"Content-Type","Value":["application/json"],"$type":"KeyValuePair`2"},{"Key":"Accept","Value":["*/*"],"$type":"KeyValuePair`2"},{"Key":"Accept-Encoding","Value":["gzip, deflate, br"],"$type":"KeyValuePair`2"},{"Key":"Accept-Language","Value":["en-US,en;q=0.9"],"$type":"KeyValuePair`2"},{"Key":"Host","Value":["localhost:57406"],"$type":"KeyValuePair`2"},{"Key":"Referer","Value":["http://localhost:57406/index.html"],"$type":"KeyValuePair`2"},{"Key":"User-Agent","Value":["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 OPR/68.0.3618.173"],"$type":"KeyValuePair`2"},{"Key":"Origin","Value":["http://localhost:57406"],"$type":"KeyValuePair`2"},{"Key":"Content-Length","Value":["44"],"$type":"KeyValuePair`2"},{"Key":"Sec-Fetch-Site","Value":["same-origin"],"$type":"KeyValuePair`2"},{"Key":"Sec-Fetch-Mode","Value":["cors"],"$type":"KeyValuePair`2"},{"Key":"Sec-Fetch-Dest","Value":["empty"],"$type":"KeyValuePair`2"}]. Query: []. Path: {"Value":"/api/DB","HasValue":true,"$type":"PathString"}. Body: 
+System.ArgumentException: Product name or ID invalid. IDs must be greater than zero.
+   at Dti.Api.Test.Facades.Services.DBFacade.AddNewItem(Product product) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test.Facades\Services\DBFacade.cs:line 43
+   at Dti.Api.Test.Controllers.DBController.AddNewItem(Product product) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Controllers\DBController.cs:line 41
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Dti.Api.Test.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Middleware\ErrorHandlingMiddleware.cs:line 38

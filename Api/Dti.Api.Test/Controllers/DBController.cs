@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-
+using System.Web.Http.Cors;
 using Dti.Api.Test.Facades;
 using Dti.Api.Test.Models.Database;
 
