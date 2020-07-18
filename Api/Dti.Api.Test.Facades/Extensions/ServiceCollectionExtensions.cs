@@ -21,11 +21,10 @@ namespace Dti.Api.Test.Facades.Extensions
         /// <param name="configuration"></param>
         public static void AddSingletons(this IServiceCollection services, IConfiguration configuration)
         {
-            var settings = configuration.GetSection(SETTINGS_SECTION).Get<ApiSettings>();
+            //var settings = configuration.GetSection(SETTINGS_SECTION).Get<ApiSettings>();
 
-            // Dependency injection
-            services.AddSingleton(settings)
-                    .AddSingleton(settings.BlipBotSettings);
+            //// Dependency injection
+            //services.AddSingleton(settings);
 
             // SERILOG settings
             services.AddSingleton<ILogger>(new LoggerConfiguration()

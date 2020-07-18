@@ -32,7 +32,7 @@ namespace Dti.Api.Test
         private const string SETTINGS_SECTION = "Settings";
         private const string LOCALHOST = "http://localhost:80";
         private const string HEALTH_CHECK_ENDPOINT = "/health";
-        private const string BLIP_CSS = "blip.css";
+        private const string CSS = "healthcheck.css";
         private const string API_CHECK_KEY = "API";
 
         public Startup(IConfiguration configuration)
@@ -46,18 +46,9 @@ namespace Dti.Api.Test
         public void ConfigureServices(IServiceCollection services)
         {
             // Adds BLiP's Json Serializer to use on BLiP's Builder
-            services.AddMvc().AddNewtonsoftJson(options =>
-            {
-                foreach (var settingsConverter in JsonNetSerializer.Settings.Converters)
-                {
-                    options.SerializerSettings.Converters.Add(settingsConverter);
-                }
-            });
+            services.AddMvc();
 
             services.AddSingletons(Configuration);
-
-            var settings = Configuration.GetSection(SETTINGS_SECTION).Get<ApiSettings>();
-            services.UseBotAuthentication(settings.BlipBotSettings.Authorization);
 
             AddSwagger(services);
 
@@ -120,7 +111,7 @@ namespace Dti.Api.Test
         {
             endpoints.MapHealthChecksUI(settings =>
             {
-                settings.AddCustomStylesheet(BLIP_CSS);
+                settings.AddCustomStylesheet(CSS);
             });
 
             endpoints.MapHealthChecks(HEALTH_CHECK_ENDPOINT, new HealthCheckOptions

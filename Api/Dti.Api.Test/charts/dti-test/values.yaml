@@ -6,7 +6,7 @@ image:
   repository: dti-test
   tag: #{Build.BuildId}#
   pullPolicy: IfNotPresent
-  imagePullSecretName: acr-takeprivate-secret
+  imagePullSecretName: acr-private-secret
 imagePullSecrets: []
 service:
   type: ClusterIP
@@ -52,6 +52,6 @@ autoscale:
   maxReplicas: maxReplicas
   averageCPUUtilization: averageCpuUtilization
 
-team: zeus
+team: dti
 
 annotations: {}
