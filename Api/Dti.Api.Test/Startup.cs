@@ -54,6 +54,7 @@ namespace Dti.Api.Test
 
             services.AddControllers();
             services.AddApiHealthCheck();
+            services.AddRouting(r => r.SuppressCheckForUnhandledSecurityMetadata = true);
 
             AddHealthCheckUI(services);
         }
@@ -61,13 +62,13 @@ namespace Dti.Api.Test
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors("ApiCorsPolicy");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
             app.UseMiddleware<ErrorHandlingMiddleware>();
-            app.UseCors("ApiCorsPolicy");
 
             // Swagger
             app.UseSwagger()
@@ -78,9 +79,7 @@ namespace Dti.Api.Test
                });
 
             app.UseHttpsRedirection()
-               .UseAuthentication()
                .UseRouting()
-               .UseAuthorization()
                .UseEndpoints(endpoints =>
                {
                    endpoints.MapControllers();

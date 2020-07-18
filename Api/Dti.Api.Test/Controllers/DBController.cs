@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web.Http.Cors;
 using Dti.Api.Test.Facades;
 using Dti.Api.Test.Models.Database;
-
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,7 +12,7 @@ namespace Dti.Api.Test.Controllers
     /// <summary>
     /// Controller responsible for direct DB interface
     /// </summary>
-    [ApiController, Route("api/[controller]")]
+    [ApiController, Route("api/[controller]"), EnableCors("ApiCorsPolicy")]
     public class DBController : ControllerBase
     {
         private readonly IDBFacade _dBFacade;
