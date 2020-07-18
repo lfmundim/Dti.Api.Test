@@ -2,10 +2,8 @@
 using System.IO;
 using System.Threading.Tasks;
 
-using Lime.Protocol;
-
 using Microsoft.AspNetCore.Http;
-
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Newtonsoft.Json;
 
 using Serilog;
@@ -67,7 +65,7 @@ namespace Dti.Api.Test.Middleware
             _logger.Error(exception, "[traceId:{@traceId}] Error. Headers: {@headers}. Query: {@query}. Path: {@path}. Body: {@body}",
                           context.TraceIdentifier, context.Request.Headers, context.Request.Query, context.Request.Path, body);
 
-            context.Response.ContentType = MediaType.ApplicationJson;
+            context.Response.ContentType = "application/json";
             await context.Response.WriteAsync(JsonConvert.SerializeObject($"{exception.Message}| traceId: {context.TraceIdentifier}"));
         }
     }

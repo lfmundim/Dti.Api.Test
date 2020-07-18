@@ -27,7 +27,6 @@ namespace Dti.Api.Test
     {
         private const string SWAGGERFILE_PATH = "./swagger/v1/swagger.json";
         private const string API_VERSION = "v1";
-        private const string SETTINGS_SECTION = "Settings";
         private const string LOCALHOST = "http://localhost:80";
         private const string HEALTH_CHECK_ENDPOINT = "/health";
         private const string CSS = "healthcheck.css";
@@ -43,7 +42,6 @@ namespace Dti.Api.Test
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Adds BLiP's Json Serializer to use on BLiP's Builder
             services.AddMvc();
 
             services.AddSingletons(Configuration);
