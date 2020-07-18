@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 
 using Dti.Api.Test.Facades;
 using Dti.Api.Test.Facades.Services;
