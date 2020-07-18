@@ -40,7 +40,7 @@ namespace Dti.Api.Test.Tests.IntegrationTests
         }
 
         [Fact]
-        public async Task AddAndRemoveItem_TestAsync()
+        public void AddAndRemoveItem_Test()
         {
             // Arrange
             var product = CreateProduct();
@@ -55,7 +55,7 @@ namespace Dti.Api.Test.Tests.IntegrationTests
         }
 
         [Fact]
-        public async Task AddInvalidId_TestAsync()
+        public void AddInvalidId_Test()
         {
             // Arrange
             var product = CreateProduct(default);
@@ -76,7 +76,7 @@ namespace Dti.Api.Test.Tests.IntegrationTests
         }
 
         [Fact]
-        public async Task AddDuplicateId_TestAsync()
+        public void AddDuplicateId_Test()
         {
             // Arrange
             var product = CreateProduct();
@@ -105,7 +105,7 @@ namespace Dti.Api.Test.Tests.IntegrationTests
         [InlineData("newName", 42)]
         [InlineData(null, 42)]
         [InlineData("newName", null)]
-        public async Task UpdateAndGetItem_TestAsync(string newName, int? newStock)
+        public void UpdateAndGetItem_Test(string newName, int? newStock)
         {
             // Arrange
             var product = CreateProduct();
@@ -127,7 +127,7 @@ namespace Dti.Api.Test.Tests.IntegrationTests
         }
 
         [Fact]
-        public async Task GetItem_TestAsync()
+        public void GetItem_Test()
         {
             // Arrange
             var product = CreateProduct();
@@ -144,7 +144,7 @@ namespace Dti.Api.Test.Tests.IntegrationTests
         }
 
         [Fact]
-        public async Task GetAllItems_TestAsync()
+        public void GetAllItems_Test()
         {
             // Arrange
             var product = CreateProduct();
