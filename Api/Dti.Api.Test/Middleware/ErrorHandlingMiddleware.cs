@@ -1,9 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Net;
 using System.Threading.Tasks;
-
-using Dti.Api.Test.Models;
 
 using Lime.Protocol;
 
@@ -23,9 +20,9 @@ namespace Dti.Api.Test.Middleware
         private readonly RequestDelegate _next;
         private readonly ILogger _logger;
 
-        #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public ErrorHandlingMiddleware(RequestDelegate next, ILogger logger)
-        #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         {
             _next = next;
             _logger = logger;
@@ -60,7 +57,7 @@ namespace Dti.Api.Test.Middleware
                 _logger.Error(exception, "Error: {@exception}", exception.Message);
                 context.Response.StatusCode = StatusCodes.Status500InternalServerError;
             }
-            
+
             string body = string.Empty;
             using (var reader = new StreamReader(context.Request.Body))
             {

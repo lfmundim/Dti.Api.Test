@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using Dapper;
-
 using Dti.Api.Test.Models.Database;
 using Dti.Api.Test.Models.UI;
 
@@ -70,7 +68,7 @@ namespace Dti.Api.Test.Facades.Services
             {
                 query = _fullUpdateFromIdQuery;
             }
-            else if(product.Name is null)
+            else if (product.Name is null)
             {
                 query = _stockUpdateFromIdQuery;
             }

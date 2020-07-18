@@ -5,26 +5,24 @@ using System.Reflection;
 using Dti.Api.Test.Facades.Extensions;
 using Dti.Api.Test.Middleware;
 using Dti.Api.Test.Models;
-using Dti.Api.Test.Models.UI;
-using Lime.Protocol.Serialization.Newtonsoft;
+
+using HealthChecks.UI.Client;
 
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Take.Api.Security.Heimdall.Extensions;
 
 using Take.Api.Health.Eir.Extensions;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using HealthChecks.UI.Client;
-using Microsoft.AspNetCore.Routing;
 
 namespace Dti.Api.Test
 {
 
-    #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public class Startup
     {
         private const string SWAGGERFILE_PATH = "./swagger/v1/swagger.json";
@@ -103,7 +101,7 @@ namespace Dti.Api.Test
         {
             services.AddHealthChecksUI(setupSettings: settings =>
             {
-                settings.AddHealthCheckEndpoint(API_CHECK_KEY, LOCALHOST+HEALTH_CHECK_ENDPOINT);
+                settings.AddHealthCheckEndpoint(API_CHECK_KEY, LOCALHOST + HEALTH_CHECK_ENDPOINT);
             });
         }
 

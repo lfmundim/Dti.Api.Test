@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Dti.Api.Test.Facades.Services;
 using Dti.Api.Test.Models;
 using Dti.Api.Test.Models.UI;
@@ -24,9 +25,9 @@ namespace Dti.Api.Test.Facades.Extensions
         public static void AddSingletons(this IServiceCollection services, IConfiguration configuration)
         {
             var settings = configuration.GetSection(SETTINGS_SECTION).Get<ApiSettings>();
-            #if DEBUG
+#if DEBUG
             settings.ConnectionString = $"Data Source={Environment.CurrentDirectory}\\db.sqlite";
-            #endif
+#endif
 
             //// Dependency injection
             services.AddSingleton(settings);

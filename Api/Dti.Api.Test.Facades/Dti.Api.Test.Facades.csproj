@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Dti.Api.Test.Models\Dti.Api.Test.Models.csproj" />
-    <ProjectReference Include="..\Dti.Api.Test.Services\Dti.Api.Test.Services.csproj" />
   </ItemGroup>
 
 </Project>
