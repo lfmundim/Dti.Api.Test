@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using Dapper;
@@ -15,8 +16,13 @@ namespace Dti.Api.Test.Facades.Services
         private readonly ApiSettings _apiSettings;
         private readonly string _tableCreateQuery = "CREATE TABLE Products (Id, Name, Stock)";
         private readonly string _addItemQuery = "INSERT INTO Products (Id, Name, Stock)" +
-                                                      "VALUES (@id, @name, @stock)";
-        private readonly string _selectFirstFromIdQuery = "SELECT * FROM Products WHERE Id = @id";
+                                                "VALUES (@id, @name, @stock)";
+        private readonly string _selectFromIdQuery = "SELECT * FROM Products WHERE Id = @id";
+        private readonly string _deleteFromIdQuery = "DELETE FROM Products WHERE Id = @id";
+        private readonly string _fullUpdateFromIdQuery = "UPDATE Products SET Name = @name, Stock = @stock WHERE Id = @id";
+        private readonly string _stockUpdateFromIdQuery = "UPDATE Products SET Stock = @stock WHERE Id = @id";
+        private readonly string _nameUpdateFromIdQuery = "UPDATE Products SET Name = @name WHERE Id = @id";
+        private readonly string _selectAllQuery = "SELECT * FROM Products";
 
         public DBFacade(ApiSettings apiSettings)
         {
@@ -41,6 +47,55 @@ namespace Dti.Api.Test.Facades.Services
             return addResult != default;
         }
 
+        public bool DeleteItem(long id)
+        {
+            using var connection = OpenConnection();
+
+            var deleteResult = connection.Execute(_deleteFromIdQuery, new { id });
+
+            return deleteResult != default;
+        }
+
+        public bool UpdateItem(Product product)
+        {
+            using var connection = OpenConnection();
+
+            if (!ProductExists(product, connection))
+            {
+                throw new ArgumentException($"Product with ID {product.Id} does not exist.", nameof(product.Id));
+            }
+
+            string query;
+            if (product.Name != null && product.Stock != default)
+            {
+                query = _fullUpdateFromIdQuery;
+            }
+            else if(product.Name is null)
+            {
+                query = _stockUpdateFromIdQuery;
+            }
+            else
+            {
+                query = _nameUpdateFromIdQuery;
+            }
+
+            return UpdateItem(product, connection, query);
+        }
+
+        public Product GetItem(long id)
+        {
+            using var connection = OpenConnection();
+
+            return GetProduct(connection, id);
+        }
+
+        public IEnumerable<Product> GetAllItems()
+        {
+            using var connection = OpenConnection();
+
+            return connection.Query<Product>(_selectAllQuery);
+        }
+
         public bool CreateDatabase()
         {
             using var connection = OpenConnection();
@@ -51,29 +106,30 @@ namespace Dti.Api.Test.Facades.Services
             return true;
         }
 
-        public void DeleteItem(Product product)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteItem(long productId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateItem(Product product)
-        {
-            throw new NotImplementedException();
-        }
-
         private SqliteConnection OpenConnection() => new SqliteConnection(_apiSettings.ConnectionString);
 
         private bool ProductExists(Product product, SqliteConnection connection)
         {
             var id = product.Id;
-            var existingProduct = connection.Query<Product>(_selectFirstFromIdQuery, new { id })
-                                            .FirstOrDefault();
+            var existingProduct = GetProduct(connection, id);
             return existingProduct != null;
+        }
+
+        private Product GetProduct(SqliteConnection connection, long id)
+        {
+            return connection.Query<Product>(_selectFromIdQuery, new { id })
+                                                        .FirstOrDefault();
+        }
+
+        private bool UpdateItem(Product product, SqliteConnection connection, string query)
+        {
+            var id = product.Id;
+            var name = product.Name;
+            var stock = product.Stock;
+
+            var addResult = connection.Execute(query, new { id, name, stock });
+
+            return addResult != default;
         }
     }
 }
