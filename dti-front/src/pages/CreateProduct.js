@@ -2,19 +2,18 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import Products from '../components/products'
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import '../App.css';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom'
+import '../App.css';
 
-class EditProduct extends Component {
+class CreateProduct extends Component {
     state = {
         product: Products
     }
 
     handleSumbit(event) {
         let data = new FormData(event.target)
-        let id = event.target.action.split('/')[4]
-        updateEntry(id, data)
+        updateEntry(data)
     }
 
     render() {
@@ -28,13 +27,16 @@ class EditProduct extends Component {
                 <form onSubmit={this.handleSumbit}>
                     <div className="card" label>
                         <label>
-                            Nome: <input type="text" placeholder={this.props.match.params.name} name="name" />
+                            ID: <input type="text" name="id" />
                         </label>
                         <label>
-                            Preço: <input type="text" placeholder={this.props.match.params.price} name="price" />
+                            Nome: <input type="text" name="name" />
                         </label>
                         <label>
-                            Estoque: <input type="text" placeholder={this.props.match.params.stock} name="stock" />
+                            Preço: <input type="text" name="price" />
+                        </label>
+                        <label>
+                            Estoque: <input type="text" name="stock" />
                         </label>
                         <input type="submit" value="Submeter" />
                     </div>
@@ -49,9 +51,9 @@ class EditProduct extends Component {
     }
 }
 
-function updateEntry(itemId, data) {
+function updateEntry(data) {
     let requestBody = JSON.stringify({
-        id: parseInt(itemId),
+        id: parseInt(data.get('id')),
         name: data.get('name'),
         price: parseFloat(data.get('price')),
         stock: parseInt(data.get('stock'))
@@ -59,15 +61,15 @@ function updateEntry(itemId, data) {
     console.log(requestBody)
 
     fetch('http://localhost:57406/api/DB', {
-        method: 'PATCH',
+        method: 'POST',
         body: requestBody,
         headers: {
             "Content-Type": "application/json; charset=UTF-8"
         }
     })
-    .catch(console.log)
+        .catch(console.log)
 
     // window.location.reload(true)
 };
 
-export default EditProduct
+export default CreateProduct

@@ -7,6 +7,18 @@ const Products = ({ products }) => {
     return (
         <div>
             <center><h1>Produtos</h1></center>
+            <div class="card">
+                    <p class="edit-button">
+                        <Link to={'/create'}>
+                            <Button variant="success">Novo Produto</Button>
+                        </Link>
+                    </p>
+                    <p class="delete-button">
+                        <Link to={'/search'}>
+                            <Button variant="secondary">Buscar</Button>
+                        </Link>
+                    </p>
+            </div>
             {products.map((product) => (
                 <div class="card">
                     <div class="card-body">
