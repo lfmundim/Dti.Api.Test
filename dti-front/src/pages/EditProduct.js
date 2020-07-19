@@ -11,7 +11,7 @@ class EditProduct extends Component {
 
     handleSumbit(event) {
         let data = new FormData(event.target)
-        let id = event.target.action.split('/').slice(-1)[0].split('?')[0]
+        let id = event.target.action.split('/')[4]
         updateEntry(id, data)
     }
 

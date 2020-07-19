@@ -868,3 +868,53 @@ Configure your application startup by adding app.UseCors() inside the call to Co
    at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
    at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
    at Dti.Api.Test.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Middleware\ErrorHandlingMiddleware.cs:line 38
+2020-07-18 21:10:30.239 -03:00 [ERR] Error: Product with ID 99 does not exist. (Parameter 'Id')
+System.ArgumentException: Product with ID 99 does not exist. (Parameter 'Id')
+   at Dti.Api.Test.Facades.Services.DBFacade.UpdateItem(Product product) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test.Facades\Services\DBFacade.cs:line 64
+   at Dti.Api.Test.Controllers.DBController.UpdateItem(Product product) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Controllers\DBController.cs:line 76
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Dti.Api.Test.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Middleware\ErrorHandlingMiddleware.cs:line 38
+2020-07-18 21:10:30.294 -03:00 [ERR] [traceId:0HM1BEPRAQ7JE:0000000A] Error. Headers: [{"Key":"Connection","Value":["keep-alive"],"$type":"KeyValuePair`2"},{"Key":"Content-Type","Value":["application/json; charset=UTF-8"],"$type":"KeyValuePair`2"},{"Key":"Accept","Value":["*/*"],"$type":"KeyValuePair`2"},{"Key":"Accept-Encoding","Value":["gzip, deflate, br"],"$type":"KeyValuePair`2"},{"Key":"Accept-Language","Value":["en-US,en;q=0.9"],"$type":"KeyValuePair`2"},{"Key":"Host","Value":["localhost:57406"],"$type":"KeyValuePair`2"},{"Key":"Referer","Value":["http://localhost:3000/edit/44/A%20Vida,%20o%20Universo%20e%20Tudo%20Mais/31.5/99"],"$type":"KeyValuePair`2"},{"Key":"User-Agent","Value":["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 OPR/68.0.3618.173"],"$type":"KeyValuePair`2"},{"Key":"Origin","Value":["http://localhost:3000"],"$type":"KeyValuePair`2"},{"Key":"Content-Length","Value":["43"],"$type":"KeyValuePair`2"},{"Key":"Sec-Fetch-Site","Value":["same-site"],"$type":"KeyValuePair`2"},{"Key":"Sec-Fetch-Mode","Value":["cors"],"$type":"KeyValuePair`2"},{"Key":"Sec-Fetch-Dest","Value":["empty"],"$type":"KeyValuePair`2"}]. Query: []. Path: {"Value":"/api/DB","HasValue":true,"$type":"PathString"}. Body: 
+System.ArgumentException: Product with ID 99 does not exist. (Parameter 'Id')
+   at Dti.Api.Test.Facades.Services.DBFacade.UpdateItem(Product product) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test.Facades\Services\DBFacade.cs:line 64
+   at Dti.Api.Test.Controllers.DBController.UpdateItem(Product product) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Controllers\DBController.cs:line 76
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Dti.Api.Test.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in E:\Lucas\Documents\Git\Dti.Api.Test\Api\Dti.Api.Test\Middleware\ErrorHandlingMiddleware.cs:line 38

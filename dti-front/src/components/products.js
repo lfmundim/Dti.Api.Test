@@ -1,6 +1,7 @@
 import React from 'react'
 import '../App.css';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom'
 
 const Products = ({ products }) => {
     return (
@@ -16,7 +17,9 @@ const Products = ({ products }) => {
                             <Button variant="danger" onClick={_ => deleteEntry(product.id)}>Excluir</Button>
                         </p>
                         <p class="edit-button">
-                            <Button variant="info">Editar</Button>
+                            <Link to={`/edit/${product.id}/${product.name}/${product.price}/${product.stock}`}>
+                                <Button variant="info">Editar</Button>
+                            </Link>
                         </p>
                     </div>
                 </div>
@@ -33,7 +36,7 @@ function deleteEntry(id) {
 
     fetch('http://localhost:57406/api/DB?id=' + id, requestOptions)
         .catch(console.log)
-    
+
     window.location.reload(true)
 };
 
