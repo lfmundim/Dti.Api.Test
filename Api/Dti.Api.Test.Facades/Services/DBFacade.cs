@@ -79,11 +79,12 @@ namespace Dti.Api.Test.Facades.Services
             return AddOrUpdateItem(product, connection, string.Format(_baseUpdateFromIdQuery, properties));
         }
 
-        public Product GetItem(long id)
+        public IEnumerable<Product> GetItem(long id)
         {
             using var connection = OpenConnection();
-
-            return GetProduct(connection, id);
+            var list = new List<Product>();
+            list.Add(GetProduct(connection, id));
+            return list;
         }
 
         public IEnumerable<Product> GetAllItems()

@@ -36,7 +36,7 @@ namespace Dti.Api.Test.Facades
         /// </summary>
         /// <param name="id">ID of the item to be retrieved</param>
         /// <returns>The current representation of the item on the DB</returns>
-        Product GetItem(long id);
+        IEnumerable<Product> GetItem(long id);
 
         /// <summary>
         /// Retrieves all items from the DB
